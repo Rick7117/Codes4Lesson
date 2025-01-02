@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
+from tqdm import tqdm
+import sys, os
 import random
 
 class MazeEnv:
@@ -24,7 +26,7 @@ class MazeEnv:
             y += 1
 
         if 0 <= x < self.maze.shape[0] and 0 <= y < self.maze.shape[1] and self.maze[x, y] == 0:
-            print(f"Moving to ({x}, {y})")
+            # print(f"Moving to ({x}, {y})")
             self.current_position = (x, y)
             self.history.append(self.current_position)  # 记录历史位置
 
@@ -75,8 +77,8 @@ class MazeEnv:
 # Q-Learning Implementation
 def q_learning(env, episodes=1000, alpha=0.1, gamma=0.9, epsilon=0.1, render_interval=100):
     q_table = np.zeros((env.maze.shape[0], env.maze.shape[1], len(env.action_space)))
-
-    for episode in range(episodes):
+    
+    for episode in tqdm(range(episodes), file=sys.stdout, desc="Training"):
         state = env.reset()
         done = False
 
@@ -100,7 +102,6 @@ def q_learning(env, episodes=1000, alpha=0.1, gamma=0.9, epsilon=0.1, render_int
 
         # Render the environment at intervals
         if episode % render_interval == 0:
-            print(f"Episode {episode}")
             env.render(episode, if_save=True)
 
     return q_table
