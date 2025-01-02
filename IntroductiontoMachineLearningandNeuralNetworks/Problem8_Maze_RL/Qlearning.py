@@ -67,7 +67,7 @@ class MazeEnv:
         ax.legend()  # 添加图例
 
         if if_save and episode is not None:
-            plt.savefig(f'Introduction to Machine Learning and Neural Networks\Problem8_Maze_RL\QlearningResult\maze_path_solution_episode_{episode}.png', dpi=300, bbox_inches='tight')
+            plt.savefig(f'IntroductiontoMachineLearningandNeuralNetworks\Problem8_Maze_RL\QlearningResult\maze_path_solution_episode_{episode}.png', dpi=300, bbox_inches='tight')
         
         # plt.show()
         # plt.close()
@@ -135,7 +135,7 @@ def load_maze_from_txt(input_path):
 # Example usage
 if __name__ == "__main__":
     # Define maze (0 = free, 1 = wall)
-    maze = load_maze_from_txt('Introduction to Machine Learning and Neural Networks\Problem8_Maze_RL\mazeArray.txt')
+    maze = load_maze_from_txt('IntroductiontoMachineLearningandNeuralNetworks\Problem8_Maze_RL\mazeArray.txt')
     print(len(maze), len(maze[0]))
     maze = np.array(maze)
 
