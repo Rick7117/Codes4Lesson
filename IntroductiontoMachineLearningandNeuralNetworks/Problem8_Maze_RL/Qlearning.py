@@ -132,6 +132,7 @@ def load_maze_from_txt(input_path):
     return maze_array
 
 
+# Example usage
 if __name__ == "__main__":
     # Define maze (0 = free, 1 = wall)
     maze = load_maze_from_txt('Introduction to Machine Learning and Neural Networks\Problem8_Maze_RL\mazeArray.txt')
