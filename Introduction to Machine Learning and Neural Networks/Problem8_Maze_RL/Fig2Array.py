@@ -50,5 +50,5 @@ def save_maze_to_txt(maze_array, output_path):
             f.write(' '.join(map(str, row)) + '\n')
 
 maze_array = maze_image_to_array('maze.jpg', block_size=8)
-save_maze_to_txt(maze_array, 'maze_output.txt')
+save_maze_to_txt(maze_array, 'mazeArray.txt')
 
